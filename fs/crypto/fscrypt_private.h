@@ -520,12 +520,6 @@ struct fscrypt_mode {
 
 extern struct fscrypt_mode fscrypt_modes[];
 
-static inline bool
-fscrypt_mode_supports_direct_key(const struct fscrypt_mode *mode)
-{
-	return mode->ivsize >= offsetofend(union fscrypt_iv, nonce);
-}
-
 extern struct crypto_skcipher *
 fscrypt_allocate_skcipher(struct fscrypt_mode *mode, const u8 *raw_key,
 			  const struct inode *inode);
